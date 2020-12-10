@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import jp.cubenoy22.neumorphism.databinding.FragmentControllerBinding
 
 class ControllerFragment : Fragment(R.layout.fragment_controller) {
@@ -22,6 +23,9 @@ class ControllerFragment : Fragment(R.layout.fragment_controller) {
         FragmentControllerBinding.bind(view).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@ControllerFragment.viewModel
+            buttonPerformance.setOnClickListener {
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            }
         }
     }
 }

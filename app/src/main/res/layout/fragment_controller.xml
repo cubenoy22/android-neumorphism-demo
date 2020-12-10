@@ -134,10 +134,20 @@
             android:max="100"
             android:min="1"
             android:progress="@={ viewModel.blur }"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toEndOf="@+id/textView_blur"
             app:layout_constraintTop_toBottomOf="@id/seekBar_distance"
+            />
+
+        <Button
+            android:id="@+id/button_performance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="パフォーマンス"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar_blur"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

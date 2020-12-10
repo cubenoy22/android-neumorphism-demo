@@ -21,9 +21,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="jp.cubenoy22.neumorphism.SecondFragment"
+        android:name="jp.cubenoy22.neumorphism.PerformanceFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second"
+        tools:layout="@layout/fragment_performance"
         >
 
         <action

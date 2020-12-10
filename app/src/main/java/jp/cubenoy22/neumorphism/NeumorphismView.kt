@@ -108,8 +108,13 @@ class NeumorphismView @JvmOverloads constructor(
         updateDarkShadow()
     }
 
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        updateRect()
+    }
+
     private fun updateRect() {
-        val scale = (size / 4 - shadowOffset * 2) * resources.displayMetrics.density
+        val adjustedSize = if (size > 0) size else width / 2
+        val scale = (adjustedSize / 4 - shadowOffset * 2) * resources.displayMetrics.density
         rect.left = width / 2 - scale
         rect.top = height / 2 - scale
         rect.right = width / 2 + scale
@@ -137,8 +142,9 @@ class NeumorphismView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
         canvas.drawRect(0f, 0f, width + 0f, height + 0f, backgroundPaint)
-        canvas.drawRoundRect(rect, roundCornerRadius + 0f, roundCornerRadius + 0f, lightShadowPaint)
-        canvas.drawRoundRect(rect, roundCornerRadius + 0f, roundCornerRadius + 0f, darkShadowPaint)
-        canvas.drawRoundRect(rect, roundCornerRadius + 0f, roundCornerRadius + 0f, borderPaint)
+        val cornerRadius = roundCornerRadius + 0f
+        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, lightShadowPaint)
+        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, darkShadowPaint)
+        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, borderPaint)
     }
 }
