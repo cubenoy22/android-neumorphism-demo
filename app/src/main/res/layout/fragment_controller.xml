@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="jp.cubenoy22.neumorphism.ControllerViewModel"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".FirstFragment"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="16dp"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="16dp"
+            />
+
+        <TextView
+            android:id="@+id/textView_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size: "
+            app:layout_constraintBottom_toBottomOf="@id/seekBar_size"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/seekBar_size"
+            />
+
+        <SeekBar
+            android:id="@+id/seekBar_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:progress="@={ viewModel.size }"
+            android:min="10"
+            android:max="@{ viewModel.maxSize }"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/textView_size"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            />
+
+        <TextView
+            android:id="@+id/textView_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Radius: "
+            app:layout_constraintBottom_toBottomOf="@id/seekBar_radius"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/seekBar_radius"
+            />
+
+        <SeekBar
+            android:id="@+id/seekBar_radius"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="@{ viewModel.maxSize / 2 }"
+            android:progress="@={ viewModel.radius }"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/textView_radius"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_size"
+            />
+
+        <TextView
+            android:id="@+id/textView_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance: "
+            app:layout_constraintBottom_toBottomOf="@id/seekBar_distance"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/seekBar_distance"
+            />
+
+        <SeekBar
+            android:id="@+id/seekBar_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="50"
+            android:progress="@={ viewModel.distance }"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/textView_distance"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_radius"
+            />
+
+        <TextView
+            android:id="@+id/textView_blur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blur: "
+            app:layout_constraintBottom_toBottomOf="@id/seekBar_blur"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/seekBar_blur"
+            />
+
+        <SeekBar
+            android:id="@+id/seekBar_blur"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="100"
+            android:min="1"
+            android:progress="@={ viewModel.blur }"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/textView_blur"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_distance"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
